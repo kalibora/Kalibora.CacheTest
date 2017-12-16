@@ -6,3 +6,4 @@
 /vendor/
 /build/
 phpunit.xml
+/var/
