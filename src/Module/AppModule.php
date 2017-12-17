@@ -4,6 +4,7 @@ namespace Kalibora\CacheTest\Module;
 use BEAR\Package\PackageModule;
 use josegonzalez\Dotenv\Loader as Dotenv;
 use Ray\Di\AbstractModule;
+use Kalibora\CacheTest\Provide\StorageFilesystem\StorageFilesystemModule;
 
 class AppModule extends AbstractModule
 {
@@ -18,5 +19,6 @@ class AppModule extends AbstractModule
             'toEnv' => true
         ]);
         $this->install(new PackageModule);
+        $this->override(new StorageFilesystemModule($appDir . '/var/storage'));
     }
 }

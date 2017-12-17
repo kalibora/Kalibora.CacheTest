@@ -2,8 +2,12 @@
 namespace Kalibora\CacheTest\Resource\App;
 
 use BEAR\Resource\ResourceObject;
+use BEAR\RepositoryModule\Annotation\Cacheable;
 use Koriym\HttpConstants\StatusCode;
 
+/**
+ * @Cacheable(expirySecond=5)
+ */
 class User extends ResourceObject
 {
     private static $users = [
@@ -15,7 +19,6 @@ class User extends ResourceObject
             'id' => 2,
             'name' => 'bar',
         ],
-
     ];
 
     public function onGet(string $id) : ResourceObject
